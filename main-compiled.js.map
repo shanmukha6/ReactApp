@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.js"],"names":[],"mappings":"AAAA,OAAO,KAAP,MAAkB,OAAlB;AACA,OAAO,QAAP,MAAqB,WAArB;AACA,OAAO,GAAP,MAAgB,WAAhB;;AAEA,SAAS,MAAT","file":"main-compiled.js","sourcesContent":["import React from 'react';\r\nimport ReactDOM from 'react-dom';\r\nimport App from './App.jsx';\r\n\r\nReactDOM.render()"]}
