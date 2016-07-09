@@ -1,6 +1,7 @@
 import React from 'react';
+import Layout from './Layout.jsx';
 
-class App extends React.Component {
+export default class App extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -22,16 +23,12 @@ class App extends React.Component {
                 }
             ]
         }
-
-
     }
-
-
     render() {
         return (
             <div>
-                <Header/>
                 <Content/>
+                <Layout />
                 <table>
                     <thead>
                     <tr>
@@ -41,47 +38,35 @@ class App extends React.Component {
                     </tr>
                     </thead>
                     <tbody>
-                    {this.state.data.map((person, i) => <TableRow key={i} data= {person}/>)}
+                    {this.state.data.map((person, i) => <TableRow key={i} data={person}/>)}
                     </tbody>
                 </table>
-
-             <Head/>
+                <Head/>
                 <Cont/>
-
             </div>
         );
     }
 }
-class Header extends React.Component {
-    render() {
-        return (
-            <div>
-                <h3>Header</h3>
-                <p>This is the Header text</p>
-            </div>
-        )
 
-    }
-
-}
 class Content extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            'header' : 'Header form state....',
+            'header': 'Header form state....',
             'context': 'Context from state',
-            'text':" hello jsx"
+            'text': " hello jsx"
         }
     }
+
     render() {
         return (
             <div>
                 <h3>Content</h3>
                 <p>Here is content text</p>
-               <div>
-                   <Head headerProp = {this.state.header}/>
-                   <Cont contentProp = {this.state.context + this.state.text}/>
-               </div>
+                <div>
+                    <Head headerProp={this.state.header}/>
+                    <Cont contentProp={this.state.context + this.state.text}/>
+                </div>
             </div>
 
 
@@ -89,8 +74,8 @@ class Content extends React.Component {
     }
 }
 class Head extends React.Component {
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 <h1>{this.props.headerProp}</h1>
             </div>
@@ -98,8 +83,8 @@ class Head extends React.Component {
     }
 }
 class Cont extends React.Component {
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 <h1>{this.props.contentProp}</h1>
             </div>
@@ -120,18 +105,17 @@ class TableRow extends React.Component {
     }
 }
 class DefaultProps extends React.Component {
-render(){
-    return(
-        <div>
-            <h4>{this.props.headerProp}</h4>
-            <h5>{this.props.contentProp}</h5>
-        </div>
-    )
-}
+    render() {
+        return (
+            <div>
+                <h4>{this.props.headerProp}</h4>
+                <h5>{this.props.contentProp}</h5>
+            </div>
+        )
+    }
 }
 App.defaultProps = {
     headerProp: 'Header from props.....',
     contentProp: 'Content from props'
 }
 
-export default App;
