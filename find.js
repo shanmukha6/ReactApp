@@ -1,5 +1,1 @@
-var convert = require('./convert'),
-    func = convert('find', require('../find'));
-
-func.placeholder = require('./placeholder');
-module.exports = func;
+module.exports = { "default": require("core-js/library/fn/array/find"), __esModule: true };

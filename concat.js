@@ -1,5 +1,1 @@
-var convert = require('./convert'),
-    func = convert('concat', require('../concat'));
-
-func.placeholder = require('./placeholder');
-module.exports = func;
+module.exports = { "default": require("core-js/library/fn/array/concat"), __esModule: true };

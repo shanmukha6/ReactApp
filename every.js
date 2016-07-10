@@ -1,5 +1,1 @@
-var convert = require('./convert'),
-    func = convert('every', require('../every'));
-
-func.placeholder = require('./placeholder');
-module.exports = func;
+module.exports = { "default": require("core-js/library/fn/array/every"), __esModule: true };

@@ -1,5 +1,1 @@
-var convert = require('./convert'),
-    func = convert('fill', require('../fill'));
-
-func.placeholder = require('./placeholder');
-module.exports = func;
+module.exports = { "default": require("core-js/library/fn/array/fill"), __esModule: true };
