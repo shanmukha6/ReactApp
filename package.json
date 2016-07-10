@@ -1,85 +1,106 @@
 {
-  "name": "webpack-dev-server",
-  "version": "1.14.1",
+  "name": "babel-core",
+  "version": "6.10.4",
+  "description": "Babel compiler core.",
   "author": {
-    "name": "Tobias Koppers @sokra"
+    "name": "Sebastian McKenzie",
+    "email": "sebmck@gmail.com"
   },
-  "description": "Serves a webpack app. Updates the browser on changes.",
-  "peerDependencies": {
-    "webpack": ">=1.3.0 <3"
-  },
-  "dependencies": {
-    "compression": "^1.5.2",
-    "connect-history-api-fallback": "1.1.0",
-    "express": "^4.13.3",
-    "http-proxy": "^1.11.2",
-    "optimist": "~0.6.0",
-    "serve-index": "^1.7.2",
-    "sockjs": "^0.3.15",
-    "sockjs-client": "^1.0.3",
-    "stream-cache": "~0.0.1",
-    "strip-ansi": "^3.0.0",
-    "supports-color": "^3.1.1",
-    "webpack-dev-middleware": "^1.4.0"
-  },
-  "devDependencies": {
-    "css-loader": "~0.23.0",
-    "file-loader": "~0.8.4",
-    "jade": "^1.11.0",
-    "jade-loader": "~0.8.0",
-    "less": "^2.5.1",
-    "less-loader": "~2.2.0",
-    "style-loader": "~0.13.0",
-    "url-loader": "~0.5.6",
-    "webpack": "^1.12.1"
-  },
+  "homepage": "https://babeljs.io/",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/webpack/webpack-dev-server.git"
+    "url": "https://github.com/babel/babel/tree/master/packages/babel-core"
   },
-  "homepage": "http://github.com/webpack/webpack-dev-server",
-  "main": "lib/Server.js",
-  "bin": {
-    "webpack-dev-server": "bin/webpack-dev-server.js"
-  },
-  "files": [
-    "lib/",
-    "bin",
-    "client/",
-    "ssl/"
+  "keywords": [
+    "6to5",
+    "babel",
+    "classes",
+    "const",
+    "es6",
+    "harmony",
+    "let",
+    "modules",
+    "transpile",
+    "transpiler",
+    "var"
   ],
   "scripts": {
-    "prepublish": "webpack ./client/live.js client/live.bundle.js --colors --config client/webpack.config.js -p && webpack ./client/index.js client/index.bundle.js --colors --config client/webpack.config.js -p"
+    "bench": "make bench",
+    "test": "make test"
   },
-  "gitHead": "eae3a0c73fb847521b42ac2accae1c0906dd6023",
-  "bugs": {
-    "url": "https://github.com/webpack/webpack-dev-server/issues"
+  "dependencies": {
+    "babel-code-frame": "^6.8.0",
+    "babel-generator": "^6.9.0",
+    "babel-helpers": "^6.8.0",
+    "babel-messages": "^6.8.0",
+    "babel-template": "^6.9.0",
+    "babel-runtime": "^6.9.1",
+    "babel-register": "^6.9.0",
+    "babel-traverse": "^6.10.4",
+    "babel-types": "^6.9.1",
+    "babylon": "^6.7.0",
+    "convert-source-map": "^1.1.0",
+    "debug": "^2.1.1",
+    "json5": "^0.4.0",
+    "lodash": "^4.2.0",
+    "minimatch": "^3.0.2",
+    "path-exists": "^1.0.0",
+    "path-is-absolute": "^1.0.0",
+    "private": "^0.1.6",
+    "shebang-regex": "^1.0.0",
+    "slash": "^1.0.0",
+    "source-map": "^0.5.0"
   },
-  "_id": "webpack-dev-server@1.14.1",
-  "_shasum": "e51de228071258b0db6d55e0f5fee55eec6755de",
-  "_from": "webpack-dev-server@latest",
-  "_npmVersion": "2.10.1",
-  "_nodeVersion": "0.12.4",
+  "devDependencies": {
+    "babel-helper-fixtures": "^6.9.0",
+    "babel-helper-transform-fixture-test-runner": "^6.9.0",
+    "babel-polyfill": "^6.9.1"
+  },
+  "_id": "babel-core@6.10.4",
+  "_shasum": "283f2212bb03d4e5cd7498b9886efbf6fc2e238e",
+  "_from": "babel-core@latest",
+  "_npmVersion": "3.9.3",
+  "_nodeVersion": "5.9.0",
   "_npmUser": {
-    "name": "sokra",
-    "email": "tobias.koppers@googlemail.com"
+    "name": "loganfsmyth",
+    "email": "loganfsmyth@gmail.com"
+  },
+  "dist": {
+    "shasum": "283f2212bb03d4e5cd7498b9886efbf6fc2e238e",
+    "tarball": "https://registry.npmjs.org/babel-core/-/babel-core-6.10.4.tgz"
   },
   "maintainers": [
     {
-      "name": "jhnns",
-      "email": "mail@johannesewald.de"
+      "name": "amasad",
+      "email": "amjad.masad@gmail.com"
     },
     {
-      "name": "sokra",
-      "email": "tobias.koppers@googlemail.com"
+      "name": "hzoo",
+      "email": "hi@henryzoo.com"
+    },
+    {
+      "name": "jmm",
+      "email": "npm-public@jessemccarthy.net"
+    },
+    {
+      "name": "loganfsmyth",
+      "email": "loganfsmyth@gmail.com"
+    },
+    {
+      "name": "sebmck",
+      "email": "sebmck@gmail.com"
+    },
+    {
+      "name": "thejameskyle",
+      "email": "me@thejameskyle.com"
     }
   ],
-  "dist": {
-    "shasum": "e51de228071258b0db6d55e0f5fee55eec6755de",
-    "tarball": "https://registry.npmjs.org/webpack-dev-server/-/webpack-dev-server-1.14.1.tgz"
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/babel-core-6.10.4.tgz_1466527417705_0.10249125026166439"
   },
   "directories": {},
-  "_resolved": "https://registry.npmjs.org/webpack-dev-server/-/webpack-dev-server-1.14.1.tgz",
+  "_resolved": "https://registry.npmjs.org/babel-core/-/babel-core-6.10.4.tgz",
   "readme": "ERROR: No README data found!"
 }

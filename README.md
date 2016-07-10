@@ -1,23 +1,24 @@
-# webpack-dev-server
+# babel-core
 
-**THIS SERVER SHOULD BE USED FOR DEVELOPMENT ONLY!**
+> Babel compiler core.
 
-**DO NOT USE IT IN PRODUCTION!**
+## Install
 
-It's a live reloading server for [webpack](http://webpack.github.io).
+```
+$ npm install babel-core
+```
 
-# [Documentation](http://webpack.github.io/docs/webpack-dev-server.html)
+## Usage
 
-## Inspiration
+```js
+import babel from 'babel-core';
 
-This project is heavily inspired by [peerigon/nof5](https://github.com/peerigon/nof5).
+const code = `class Example {}`;
+const result = babel.transform(code, { /* options */ });
 
-## Contributing
+result.code; // Generated code
+result.map; // Sourcemap
+result.ast; // AST
+```
 
-The client scripts are built with `npm run-script prepublish`.
-
-## License
-
-Copyright 2012-2014 Tobias Koppers
-
-[MIT](http://www.opensource.org/licenses/mit-license.php)
+For more in depth documentation see: http://babeljs.io/docs/usage/api/
