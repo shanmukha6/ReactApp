@@ -1,38 +1,19 @@
-"use strict";
+// Copyright 2014, 2015, 2016 Simon Lydell
+// X11 (“MIT”) Licensed. (See LICENSE.)
 
-exports.__esModule = true;
-exports.config = undefined;
-exports.normaliseOptions = normaliseOptions;
+// This regex comes from regex.coffee, and is inserted here by generate-index.js
+// (run `npm run build`).
+module.exports = /((['"])(?:(?!\2|\\).|\\(?:\r\n|[\s\S]))*(\2)?|`(?:[^`\\$]|\\[\s\S]|\$(?!\{)|\$\{(?:[^{}]|\{[^}]*\}?)*\}?)*(`)?)|(\/\/.*)|(\/\*(?:[^*]|\*(?!\/))*(\*\/)?)|(\/(?!\*)(?:\[(?:(?![\]\\]).|\\.)*\]|(?![\/\]\\]).|\\.)+\/(?:(?!\s*(?:\b|[\u0080-\uFFFF$\\'"~({]|[+\-!](?!=)|\.?\d))|[gmiyu]{1,5}\b(?![\u0080-\uFFFF$\\]|\s*(?:[+\-*%&|^<>!=?({]|\/(?![\/*])))))|(0[xX][\da-fA-F]+|0[oO][0-7]+|0[bB][01]+|(?:\d*\.\d+|\d+\.?)(?:[eE][+-]?\d+)?)|((?!\d)(?:(?!\s)[$\w\u0080-\uFFFF]|\\u[\da-fA-F]{4}|\\u\{[\da-fA-F]{1,6}\})+)|(--|\+\+|&&|\|\||=>|\.{3}|(?:[+\-\/%&|^]|\*{1,2}|<{1,2}|>{1,3}|!=?|={1,2})=?|[?~.,:;[\](){}])|(\s+)|(^$|[\s\S])/g
 
-var _parsers = require("./parsers");
-
-var parsers = _interopRequireWildcard(_parsers);
-
-var _config = require("./config");
-
-var _config2 = _interopRequireDefault(_config);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-exports.config = _config2.default;
-function normaliseOptions() {
-  var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-
-  for (var key in options) {
-    var val = options[key];
-    if (val == null) continue;
-
-    var opt = _config2.default[key];
-    if (opt && opt.alias) opt = _config2.default[opt.alias];
-    if (!opt) continue;
-
-    var parser = parsers[opt.type];
-    if (parser) val = parser(val);
-
-    options[key] = val;
-  }
-
-  return options;
+module.exports.matchToToken = function(match) {
+  var token = {type: "invalid", value: match[0]}
+       if (match[ 1]) token.type = "string" , token.closed = !!(match[3] || match[4])
+  else if (match[ 5]) token.type = "comment"
+  else if (match[ 6]) token.type = "comment", token.closed = !!match[7]
+  else if (match[ 8]) token.type = "regex"
+  else if (match[ 9]) token.type = "number"
+  else if (match[10]) token.type = "name"
+  else if (match[11]) token.type = "punctuator"
+  else if (match[12]) token.type = "whitespace"
+  return token
 }
