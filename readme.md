@@ -1,29 +1,23 @@
-# shebang-regex [![Build Status](https://travis-ci.org/sindresorhus/shebang-regex.svg?branch=master)](https://travis-ci.org/sindresorhus/shebang-regex)
+These tests are written for [Mocha][] using the [exports][] interface.
 
-> Regular expression for matching a [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix))
+[Mocha]: http://visionmedia.github.com/mocha/
+[exports]: http://visionmedia.github.com/mocha/#exports-interface
 
+The `parse()` tests are run by comparing the output of `JSON5.parse()` with
+that of the native `JSON.parse()` and ES5's `eval()` in strict mode. The test
+cases' file extension signals the expected behavior:
 
-## Install
+- Valid JSON should remain valid JSON5. These cases have a `.json` extension
+  and are tested via `JSON.parse()`.
 
-```
-$ npm install --save shebang-regex
-```
+- JSON5's new features should remain valid ES5. These cases have a `.json5`
+  extension are tested via `eval()`.
 
+- Valid ES5 that's explicitly disallowed by JSON5 is also invalid JSON. These
+  cases have a `.js` extension and are expected to fail.
 
-## Usage
+- Invalid ES5 should remain invalid JSON5. These cases have a `.txt` extension
+  and are expected to fail.
 
-```js
-var shebangRegex = require('shebang-regex');
-var str = '#!/usr/bin/env node\nconsole.log("unicorns");';
-
-shebangRegex.test(str);
-//=> true
-
-shebangRegex.exec(str)[0];
-//=> '#!/usr/bin/env node'
-```
-
-
-## License
-
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+This should cover all our bases. Most of the cases are unit tests for each
+supported data type, but aggregate test cases are welcome, too.
